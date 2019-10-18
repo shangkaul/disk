@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<header>Bhai bhaiss</header>
+<nav id="par">
+    <a id="1" href="#">Boo</a>
+    <a id="2" href="#">Boo</a>
+    <a id="3" href="#">Boo</a>
+    <a id="4" href="#">Boo</a>
+</nav>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+    $("button.c2").click(function(){
+        $("#div1").slideUp(200);
+    })
+
+
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+    $("button.c3").dblclick(function(){
+        $("#div2").toggle(500);
+    })
+
+    })
+</script>
+</head>
+
+
+<body>
+        
+    <div id="div1">
+        <p>Hello World</p>
+    </div>
+    <button class="c2">Hi</button>
+
+    <div id="div2">
+            <p style="background-color: red;">Hello World</p>
+        </div>
+        <button class="c3">Hi</button>
+    
+
+       <!-- <iframe src="https://github.com/"></iframe> -->
+</body>
+</html>

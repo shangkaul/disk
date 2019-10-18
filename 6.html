@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<header>Bhai bhaiss</header>
+<nav id="par">
+    <a id="1" href="#">Boo</a>
+    <a id="2" href="#">Boo</a>
+    <a id="3" href="#">Boo</a>
+    <a id="4" href="#">Boo</a>
+</nav>
+<script>
+    function m(){
+
+        var parent=document.getElementById("par");
+        var p=document.createElement("p");
+        var t=document.createTextNode("This is a paragraph");
+        p.appendChild(t);
+        parent.appendChild(p);
+
+
+        var ch=document.createElement("p");
+        ch.textContent="This text is new";
+        
+        parent.appendChild(ch);
+
+        parent.replaceChild(ch,p);
+        parent.removeChild(ch);
+    }
+</script>
+</head>
+
+
+<body onload="m()">
+        
+    <div id="par"></div>
+
+       <!-- <iframe src="https://github.com/"></iframe> -->
+</body>
+</html>

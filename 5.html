@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Event handlers Experiment</h1>
+<h3><b>Form events</h3>
+
+<form action="/action_page.php" method="get" onsubmit="myffunction()">
+
+  Enter your name: <input type="text" oninvalid="alert('You must fill out the form!');" name="fname" required id="fname" onblur="myFunction()" onfocus="myFunction(this)" >
+  <input type="submit" value="Submit">
+
+</form>
+
+<script>
+
+
+function myFunction() {
+  var x = document.getElementById("fname");
+  x.value = x.value.toUpperCase();
+  x.style.background = "yellow";
+
+}
+
+
+
+function myffunction()
+{
+ alert("The form was submitted");
+}
+
+
+</script>
+
+
+
+Select some of the text: <input type="text" value="Hello world!" onselect="myfunction()">
+
+<script>
+
+function myfunction() {
+  alert("You selected some text!");
+}
+
+</script>
+
+<br>
+<br>
+
+<h3>Mouse events</h3>
+
+<p>onclick</p>
+
+<button onclick="Func()">Click me</button>
+
+<p id="dem"></p>
+
+<script>
+function Func() {
+  document.getElementById("dem").innerHTML = "You clicked mouse button";
+}
+</script>
+
+<p>onmousedown and onmouse up</p>
+
+<p id="myP" onmousedown="mouseDown()" onmouseup="mouseUp()">Click the text!
+</p>
+
+<script>
+function mouseDown() {
+  document.getElementById("myP").style.color = "yellow";
+}
+
+function mouseUp() {
+  document.getElementById("myP").style.color = "blue";
+}
+</script>
+
+<p>ondblclick</p>
+
+<p ondblclick="n()">Double-click this paragraph to trigger a function.</p>
+
+<p id="demo"></p>
+
+<script>
+function n() {
+  document.getElementById("demo").innerHTML = "You double clicked";
+}
+</script>
+
+<br>
+<h3>Keyboard events</h3>
+
+<p>onkeydown</p>
+<input type="text" onkeydown="Function()">
+
+<script>
+function Function() {
+  alert("You pressed a key inside the input field");
+}
+</script>
+
+<br>
+<p>onkeypress</p>
+
+<input type="text" onkeypress="myunction()">
+
+<script>
+function myunction() {
+  alert("onkeypress event occurs");
+}
+</script>
+
+<br>
+<p>onkeyup</p>
+
+Enter your name in capital: <input type="text" id="fame" onkeyup="munction()">
+
+<script>
+function munction() {
+  var x = document.getElementById("fame");
+  x.value = x.value.toLowerCase();
+}
+</script>
+
+</body>
+</html>

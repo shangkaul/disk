@@ -1,0 +1,225 @@
+<?php
+   setcookie("name", "John Watkin", time()+3600, "/","", 0);
+   setcookie("age", "36", time()+3600, "/", "",  0);
+?>
+<html>
+   
+   <head>
+      <title>Setting Cookies with PHP</title>
+   </head>
+   
+   <body>
+      <?php echo "Set Cookies"?>
+   </body>
+   
+</html>
+
+
+<html>
+   
+   <head>
+      <title>Accessing Cookies with PHP</title>
+   </head>
+   
+   <body>
+      
+      <?php
+         echo $_COOKIE["name"]. "<br />";
+         
+         /* is equivalent to */
+         echo $HTTP_COOKIE_VARS["name"]. "<br />";
+         
+         echo $_COOKIE["age"] . "<br />";
+         
+         /* is equivalent to */
+         echo $HTTP_COOKIE_VARS["age"] . "<br />";
+      ?>
+      
+   </body>
+</html>
+
+
+Live Demo
+<?php
+   session_start();
+   
+   if( isset( $_SESSION['counter'] ) ) {
+      $_SESSION['counter'] += 1;
+   }else {
+      $_SESSION['counter'] = 1;
+   }
+	
+   $msg = "You have visited this page ".  $_SESSION['counter'];
+   $msg .= "in this session.";
+?>
+
+<html>
+   
+   <head>
+      <title>Setting up a PHP session</title>
+   </head>
+   
+   <body>
+      <?php  echo ( $msg ); ?>
+   </body>
+   
+</html>
+
+
+
+
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var text, parser, xmlDoc;
+
+text = "<bookstore><book>" +
+"<title>Everyday Italian</title>" +
+"<author>Giada De Laurentiis</author>" +
+"<year>2005</year>" +
+"</book></bookstore>";
+
+parser = new DOMParser();
+xmlDoc = parser.parseFromString(text,"text/xml");
+
+document.getElementById("demo").innerHTML =
+xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+</script>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+
+<h2>The XMLHttpRequest Object</h2>
+
+<button type="button" onclick="loadDoc(myFunction)">Change Content
+</button>
+</div>
+
+<script>
+function loadDoc(cFunction) {
+  var xhttp;
+  xhttp=new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      cFunction(this);
+    }
+  };
+  xhttp.open("GET", 'ajax_info.txt', true);
+  xhttp.send();
+}
+function myFunction(xhttp) {
+  document.getElementById("demo").innerHTML =
+  xhttp.responseText;
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<h3>Start typing a name in the input field below:</h3>
+
+<p>Suggestions: <span id="txtHint"></span></p> 
+
+<p>First name: <input type="text" id="txt1" onkeyup="showHint(this.value)"></p>
+
+<script>
+function showHint(str) {
+  var xhttp;
+  if (str.length == 0) { 
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "gethint.php?q="+str, true);
+  xhttp.send();   
+}
+</script>
+
+</body>
+</html>
+
+
+
+<?php
+// Array with names
+$a[] = "Anna";
+$a[] = "Brittany";
+$a[] = "Cinderella";
+$a[] = "Diana";
+$a[] = "Eva";
+$a[] = "Fiona";
+$a[] = "Gunda";
+$a[] = "Hege";
+$a[] = "Inga";
+$a[] = "Johanna";
+$a[] = "Kitty";
+$a[] = "Linda";
+$a[] = "Nina";
+$a[] = "Ophelia";
+$a[] = "Petunia";
+$a[] = "Amanda";
+$a[] = "Raquel";
+$a[] = "Cindy";
+$a[] = "Doris";
+$a[] = "Eve";
+$a[] = "Evita";
+$a[] = "Sunniva";
+$a[] = "Tove";
+$a[] = "Unni";
+$a[] = "Violet";
+$a[] = "Liza";
+$a[] = "Elizabeth";
+$a[] = "Ellen";
+$a[] = "Wenche";
+$a[] = "Vicky";
+
+// get the q parameter from URL
+$q = $_REQUEST["q"];
+
+$hint = "";
+
+// lookup all hints from array if $q is different from ""
+if ($q !== "") {
+  $q = strtolower($q);
+  $len=strlen($q);
+  foreach($a as $name) {
+    if (stristr($q, substr($name, 0, $len))) {
+      if ($hint === "") {
+        $hint = $name;
+      } else {
+        $hint .= ", $name";
+      }
+    }
+  }
+}
+
+// Output "no suggestion" if no hint was found or output correct values
+echo $hint === "" ? "no suggestion" : $hint;
+?>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("button.c2").dblclick(function(){
+   
+      $(".test").toggle(500);
+    $("#test").toggle(2000);
+     $("p1").toggle(500);
+    $("p1").hide("slow", function(){
+      alert("The paragraph is now hidden");
+      
+    });
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("button.c1").click(function(){
+    $("#div1").fadeOut();
+    $("#div2").fadeOut("slow");
+    $("#div3").fadeOut(3000);
+   
+  });
+});
+
+</script>
+<script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle(7000);
+    });
+     $("#stop").click(function(){
+    $("#panel").stop();
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("button.c3").click(function(){
+    $("#p1").css("color", "red")
+      .slideUp(2000)
+      .slideDown(2000);
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("img").before("<b>I WANT</b>");
+  });
+
+  $("#btn2").click(function(){
+    $("img").after("<i>THANK YOU!</i>");
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+    alert("Submitted");
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("div9").mouseup(function(){
+    $(this).after("<p style='color:green;'>Mouse button released.</p>");
+  });
+  $("div9").mousedown(function(){
+    $(this).after("<p style='color:purple;'>Mouse button pressed down.</p>");
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("button.c4").click(function(){
+    $("#div11").remove();
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("button.c5").click(function(){
+    $("#div12").empty();
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("p2").hover(function(){
+    $(this).css("background-color", "yellow");
+    }, function(){
+    $(this).css("background-color", "pink");
+  });
+});
+</script>
+<script>
+i = 0;
+$(document).ready(function(){
+  $("input.c9").keypress(function(){
+    $("span").text(i += 1);
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("input.c11").select(function(){
+    $("input.c11").after(" Text marked!");
+  });
+  $("button.c11").click(function(){
+    $("input.c11").trigger("select");
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("input.c8").keydown(function(){
+    $("input.c8").css("background-color", "yellow");
+  });
+  $("input.c8").keyup(function(){
+    $("input.c8").css("background-color", "pink");
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $("p5").on({
+    mouseenter: function(){
+      $(this).css("background-color", "lightgray");
+    },  
+    mouseleave: function(){
+      $(this).css("background-color", "lightblue");
+    }, 
+    click: function(){
+      $(this).css("background-color", "yellow");
+    }  
+  });
+});
+</script>
+<style> 
+#panel, #flip {
+  padding: 5px;
+  font-size: 18px;
+  text-align: center;
+  background-color: #555;
+  color: white;
+  border: solid 1px #666;
+  border-radius: 3px;
+}
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+</style>
+</head>
+<body>
+<center><i><h2 class="test">Welcome to jQuery Experiment!</h2></i></center>
+
+<center><p class="test">This is a class paragraph.</p>
+<p id="test">This is id paragraph.</p>
+<p1>If you click on the "Double click Hide/show" button, I will disappear.</p1><br>
+<button class="c2">double click Hide/Show</button>
+
+<br><p id="p1">jQuery is fun!!</p>
+<button class="c3">Make above line red</button><br><br>
+
+<p>Demonstrate fadeOut() with different parameters.</p>
+<button class="c1">Click to fade out(Also to a level) and fade in(Only purple) boxes</button><br><br>
+
+
+<div id="div1" style="width:400px;height:80px;background-color:red;"></div><br>
+<div id="div2" style="width:400px;height:80px;background-color:green;"></div><br>
+<div id="div3" style="width:400px;height:80px;background-color:blue;"></div><br>
+<i>
+<p5>Click or move the mouse pointer over this paragraph.</p5></i><br><br>
+<br>
+
+<br><br><br><input class="c11" type="text" value="Hello SRM"><br><br>
+
+<button class="c11">Trigger the select event for the input field</button><BR><BR>
+
+<form action="">
+  First name: <input type="text" name="FirstName" value="Mickey"><br>
+  Last name: <input type="text" name="LastName" value="Mouse"><br>
+  <input type="submit" value="Submit">
+</form> 
+</center>
+
+</body>
+</html>
